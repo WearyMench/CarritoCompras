@@ -34,6 +34,7 @@
             cboProducts = new ComboBox();
             label1 = new Label();
             txtCodigo = new TextBox();
+            btnEliminar = new Button();
             SuspendLayout();
             // 
             // listShopCart
@@ -59,7 +60,7 @@
             // 
             // btnCalcular
             // 
-            btnCalcular.Location = new Point(389, 97);
+            btnCalcular.Location = new Point(462, 98);
             btnCalcular.Margin = new Padding(3, 2, 3, 2);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(114, 22);
@@ -94,11 +95,22 @@
             txtCodigo.Size = new Size(110, 23);
             txtCodigo.TabIndex = 5;
             // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(381, 97);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.TabIndex = 6;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(btnEliminar);
             Controls.Add(txtCodigo);
             Controls.Add(label1);
             Controls.Add(cboProducts);
@@ -122,5 +134,6 @@
         private ComboBox cboProducts;
         private Label label1;
         private TextBox txtCodigo;
+        private Button btnEliminar;
     }
 }

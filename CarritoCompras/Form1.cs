@@ -12,12 +12,22 @@ namespace CarritoCompras
             cboProducts.Items.Add("Pantalon");
             cboProducts.Items.Add("Camisa");
             cboProducts.Items.Add("Zapato");
+            cboProducts.Items.Add("Gorra");
+            cboProducts.Items.Add("Chaqueta");
+            cboProducts.Items.Add("Bufanda");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string productoSeleccionado = cboProducts.SelectedItem.ToString();
-            listShopCart.Items.Add(productoSeleccionado);
+            if (cboProducts.SelectedItem != null)
+            {
+                string productoSeleccionado = cboProducts.SelectedItem.ToString();
+                listShopCart.Items.Add(productoSeleccionado);
+            }
+            else
+            {
+                MessageBox.Show("Por favor selecciona un producto antes de agregarlo al carrito.");
+            }
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
@@ -44,12 +54,36 @@ namespace CarritoCompras
                 {
                     precioFinal += 24;
                 }
+                if (productoElegido == "Gorra")
+                {
+                    precioFinal += 10;
+                }
+                if (productoElegido == "Chaqueta")
+                {
+                    precioFinal += 50;
+                }
+                if (productoElegido == "Bufanda")
+                {
+                    precioFinal += 15;
+                }
             }
             if (txtCodigo.Text == "NAVIDAD")
             {
                 precioFinal *= 0.9;
             }
             MessageBox.Show("El precio es: $" + precioFinal);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (listShopCart.SelectedIndex != -1)
+            {
+                listShopCart.Items.RemoveAt(listShopCart.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Por favor selecciona un producto para eliminar.");
+            }
         }
     }
 }
